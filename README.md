@@ -1,60 +1,56 @@
-Descripción
 
-En esta práctica utilicé Docker Compose para crear cinco servidores Ubuntu y Ansible para automatizar tareas en todos ellos.
+# Práctica 8 - Automatización de Servidores con Ansible y Docker
 
-Tecnologías utilizadas
+## Descripción
 
-Docker y Docker Compose
+En esta práctica creé cinco servidores Ubuntu utilizando Docker Compose y automaticé su configuración mediante Ansible.
 
-Ubuntu 24.04
+El proyecto se llama **ITLA DevOps Lab** e incluye una identificación personalizada para cada servidor.
 
-Ansible
+## Tecnologías utilizadas
 
-SSH
+- Docker y Docker Compose
+- Ubuntu 24.04
+- Ansible
+- SSH
 
-Archivos del proyecto
+## Archivos del proyecto
 
-Dockerfile: prepara Ubuntu con SSH y el usuario ansible.
+- `Dockerfile`: configuración de Ubuntu con SSH.
+- `docker-compose.yml`: creación de los cinco servidores.
+- `inventario.ini`: información de conexión de los servidores.
+- `ansible.cfg`: configuración de Ansible.
+- `playbook.yml`: tareas de automatización.
 
-docker-compose.yml: crea los cinco servidores.
+## Tareas realizadas
 
-inventario.ini: contiene las conexiones de los servidores.
+- Actualizar la caché de APT.
+- Crear el usuario `itla`.
+- Crear la carpeta `app`.
+- Crear el archivo `hola.txt`.
+- Instalar `cowsay` y `htop`.
 
-ansible.cfg: configura Ansible.
+## Personalización
 
-playbook.yml: contiene las tareas de automatización.
+Agregué el archivo `identidad.txt`, que identifica cada servidor con el nombre del proyecto, mi nombre y matrícula.
 
-Cómo ejecutar la práctica
+También configuré un mensaje de bienvenida para los servidores.
 
-Se necesita Docker Desktop y Ansible instalados.
+## Ejecución
 
-Desde la carpeta del proyecto, ejecutar:
+Para iniciar los servidores y ejecutar la automatización:
 
+```bash
 docker compose up -d --build
 ansible servidores -m ping
 ansible-playbook playbook.yml
+```
 
-Tareas automatizadas
+## Resultado
 
-Actualizar la caché de APT.
+La automatización se completó correctamente en los cinco servidores Ubuntu.
 
-Crear el usuario itla.
-
-Crear la carpeta /home/itla/app.
-
-Crear el archivo hola.txt.
-
-Instalar cowsay y htop.
-
-Resultados obtenidos
-
-La automatización terminó correctamente en los cinco servidores Ubuntu.
-
-Cada servidor mostró ok=6, changed=4, unreachable=0 y failed=0.
-
-También comprobé que los cinco servidores contienen el archivo hola.txt y tienen instalados cowsay y htop.
-
-Autor
+**Resultado final:** 8 tareas correctas por servidor, 0 errores y 0 servidores inaccesibles.
 
 Jeffrey Mercado
 
